@@ -1,18 +1,5 @@
-// Tenta conectar primeiro localmente, se não funcionar usa a URL do EC2
-const LOCAL_URL = 'http://localhost:5000';
-const EC2_URL = 'http://ec2-3-145-111-106.us-east-2.compute.amazonaws.com:5000';
-
-const checkApiAvailability = async (url) => {
-  try {
-    const response = await fetch(`${url}/items`);
-    return response.ok;
-  } catch (error) {
-    return false;
-  }
-};
-
-const API_URL = await checkApiAvailability(LOCAL_URL) ? LOCAL_URL : EC2_URL;
-console.log(`Using API at: ${API_URL}`);
+// API base URL - change this to your backend URL when deploying
+const API_URL = 'http://ec2-3-145-111-106.us-east-2.compute.amazonaws.com:5000';
 
 /**
  * Serviço que gerencia todas as chamadas à API do backend

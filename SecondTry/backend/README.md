@@ -59,3 +59,8 @@ docker run -d --name api -p 5000:5000 backend-api
 - Validação de dados de entrada
 - Auto-geração de IDs únicos
 - Tratamento de erros HTTP 
+
+### Testar Backend na EC2
+```
+curl http://ec2-3-145-111-106.us-east-2.compute.amazonaws.com:5000/items
+```
