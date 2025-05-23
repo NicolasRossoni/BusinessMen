@@ -111,13 +111,9 @@ const ItemsTable = ({
               <tr key={item.id}>
                 <td>
                   {editingId === item.id ? (
-                    <input
-                      type="number"
-                      name="id"
-                      value={editValues.id}
-                      onChange={handleChange}
-                      disabled={isLoading}
-                    />
+                    <div>
+                      {item.id}
+                    </div>
                   ) : (
                     item.id
                   )}
