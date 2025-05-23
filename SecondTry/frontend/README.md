@@ -1,26 +1,26 @@
-# Frontend App
+# ⚛️ Frontend App
 
-React application for managing items.
+Aplicação React para interface de gerenciamento de itens com tabela interativa.
 
-## Setup
+## 🚀 Execução
 
-```
+```bash
 npm install
-```
-
-## Run
-
-```
 npm start
 ```
 
-## Features
+## 🖥️ Funcionalidades
 
-- Display items table
-- Add new rows
-- Edit items
-- Delete items
+- Tabela de itens responsiva e editável
+- Adicionar novas linhas inline
+- Edição de itens
+- Remoção de itens
+- Loading states e error handling
+- Fallback para dados locais se API offline
 
-## Connecting to Backend
+## 🔗 Integração
 
-To connect this frontend to the backend API, uncomment the fetch code in the `
+- Comunica com backend via REST API (`localhost:5000`)
+- Service layer para abstração das chamadas HTTP
+- Estado global gerenciado via React hooks
+- Interface funciona mesmo sem backend conectado
