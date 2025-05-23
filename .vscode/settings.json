@@ -1,0 +1,14 @@
+{
+    "files.exclude": {
+        "**/node_modules/**": true,
+        "**/dist/**": true,
+        "**/build/**": true,
+        "**/coverage/**": true,
+        "**/*.log": true,
+        "**/*.tmp": true,
+        "**/*.temp": true,
+        "**/package-lock.json": true,
+        "**/yarn.lock": true,
+        "**/venv/**": true
+    }
+} 

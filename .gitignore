@@ -16,7 +16,6 @@ yarn-error.log
 /SecondTry/frontend/build/
 
 # IDE
-.vscode/
 .idea/
 
 # System files

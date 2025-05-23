@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Data List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data List</h1>
+    <ul id="data-list">
+        <!-- Data items will be inserted here -->
+    </ul>
+    <button onclick="addItem()">Add Item</button>
+
+    <script>
+        // Sample data
+        const data = [
+            { id: 1, name: 'Item 1' },
+            { id: 2, name: 'Item 2' },
+            { id: 3, name: 'Item 3' }
+        ];
+
+        // Function to render the list
+        function renderList() {
+            const list = document.getElementById('data-list');
+            list.innerHTML = '';
+            data.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item.name;
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.onclick = () => removeItem(item.id);
+                listItem.appendChild(removeButton);
+                list.appendChild(listItem);
+            });
+        }
+
+        // Function to add an item
+        function addItem() {
+            const newItem = { id: data.length + 1, name: `Item ${data.length + 1}` };
+            data.push(newItem);
+            renderList();
+        }
+
+        // Function to remove an item
+        function removeItem(id) {
+            const index = data.findIndex(item => item.id === id);
+            if (index !== -1) {
+                data.splice(index, 1);
+                renderList();
+            }
+        }
+
+        // Initial render
+        renderList();
+    </script>
+</body>
+</html> 
