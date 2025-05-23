@@ -1,23 +1,55 @@
 # ⚙️ Backend API
 
-API REST Flask para gerenciamento de itens com persistência JSON.
+Flask REST API com persistência JSON. CRUD completo para entidade `items`.
 
-## 🚀 Execução
+## 📂 Estrutura
 
-```bash
-python -m venv venv
-source venv/bin/activate # Em fish: source venv/bin/activate.fish
-pip install -r requirements.txt
-python app.py
+```
+backend/
+├── app.py              # Flask app + endpoints
+├── requirements.txt    # Dependências Python  
+├── Dockerfile         # Container image
+├── run.sh            # Docker execution
+└── data/
+    └── items.json    # Storage JSON
 ```
 
 ## 📡 Endpoints
 
-- `GET /items` - Lista todos os itens
-- `GET /items/<id>` - Busca item específico
-- `POST /items` - Cria novo item
-- `PUT /items/<id>` - Atualiza item existente  
-- `DELETE /items/<id>` - Remove item
+| Método | URL | Descrição |
+|--------|-----|-----------|
+| `GET` | `/items` | Lista todos |
+| `GET` | `/items/<id>` | Busca por ID |
+| `POST` | `/items` | Cria novo |
+| `PUT` | `/items/<id>` | Atualiza |
+| `DELETE` | `/items/<id>` | Remove |
+
+**Payload:** `{"nome": "string"}`  
+**Response:** `{"id": number, "nome": "string"}`
+
+## 🚀 Execução
+
+### Local
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python app.py
+```
+
+### Docker
+```bash
+./run.sh
+```
+
+### AWS (EC2)
+```bash
+# Via Docker no EC2
+docker build -t backend-api .
+docker run -d --name api -p 5000:5000 backend-api
+```
+
+**URLs:** `localhost:5000` (local) | `ec2-instance:5000` (AWS)
 
 ## 🔧 Funcionalidades
 

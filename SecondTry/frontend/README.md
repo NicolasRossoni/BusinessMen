@@ -1,26 +1,67 @@
 # ⚛️ Frontend App
 
-Aplicação React para interface de gerenciamento de itens com tabela interativa.
+React SPA com tabela interativa. Interface para gerenciamento de items via API.
+
+**URLs:** [https://localhost:3000](https://localhost:3000) (dev) | [https://rossoni.click](https://rossoni.click) (prod)
+
+## 📂 Estrutura
+
+```
+frontend/
+├── src/
+│   ├── App.js                # Componente principal
+│   ├── components/
+│   │   └── ItemsTable.jsx   # Tabela CRUD
+│   └── services/
+│       └── api.js           # HTTP client
+├── package.json             # Dependências Node
+└── public/                  # Assets estáticos
+```
+
+## 🖥️ Componentes
+
+- **App.js:** Estado global + error handling
+- **ItemsTable.jsx:** CRUD interface com inline editing
+- **api.js:** Abstração HTTP para backend communication
+
+## 🔗 API Integration
+
+- **Base URL:** `http://localhost:5000` (configurable)
+- **Fallback:** Dados locais se API offline
+- **Methods:** GET, POST, PUT, DELETE via fetch()
 
 ## 🚀 Execução
 
+### Local
 ```bash
 npm install
 npm start
 ```
 
-## 🖥️ Funcionalidades
+### AWS (Amplify)
 
-- Tabela de itens responsiva e editável
-- Adicionar novas linhas inline
-- Edição de itens
-- Remoção de itens
-- Loading states e error handling
-- Fallback para dados locais se API offline
+**Amplify.yml**
 
-## 🔗 Integração
-
-- Comunica com backend via REST API (`localhost:5000`)
-- Service layer para abstração das chamadas HTTP
-- Estado global gerenciado via React hooks
-- Interface funciona mesmo sem backend conectado
+```bash
+version: 1
+applications:
+  - appRoot: SecondTry/frontend     # onde está o seu package.json
+    frontend:
+      phases:
+        preBuild:
+          # instala tudo uma vez só
+          commands:
+            - npm ci --cache .npm --prefer-offline
+        build:
+          # só roda o build (já tem node_modules)
+          commands:
+            - npm run build
+      artifacts:
+        # dentro de SecondTry/frontend será gerada a pasta `build`
+        baseDirectory: build
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - '.npm/**/*'
+```

@@ -126,4 +126,4 @@ def delete_item(item_id):
     return jsonify({"message": f"Item {item_id} deleted successfully"})
 
 if __name__ == '__main__':
-    app.run(debug=True) 
+    app.run(host='0.0.0.0', debug=True) 
