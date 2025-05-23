@@ -128,29 +128,6 @@ curl -X PUT http://localhost:5000/items/1 \
 curl -X DELETE http://localhost:5000/items/1
 ```
 
-### Testes Frontend
-1. Acesse http://localhost:3000
-2. Teste adição de itens via botão "Add Row"
-3. Teste edição com duplo clique nas células
-4. Teste remoção com botão delete e confirmação
-
-## 💡 Características Especiais
-
-### Resilência
-- Frontend funciona independentemente do backend
-- Dados de exemplo são exibidos se API estiver offline
-- Operações são executadas localmente como fallback
-
-### Escalabilidade
-- Service layer facilita mudança de backend
-- Estrutura modular permite extensão de funcionalidades
-- Separação clara entre lógica de negócio e apresentação
-
-### Desenvolvimento
-- CORS configurado para desenvolvimento local
-- Hot reload em ambos frontend e backend
-- Estrutura de pastas organizada e intuitiva
-
 ## 🔄 Fluxo de Dados
 
 1. **Inicialização:** Frontend carrega itens via GET /items
@@ -167,14 +144,3 @@ Item: {
   nome: string     // Campo obrigatório
 }
 ```
-
-## 🔒 Considerações de Produção
-
-Para ambiente de produção, considere:
-- Banco de dados real (PostgreSQL, MongoDB)
-- Autenticação e autorização
-- Validação mais robusta
-- Logging estruturado
-- Rate limiting na API
-- Build otimizado do React
-- HTTPS e variáveis de ambiente
