@@ -1,40 +1,24 @@
-.build
-.cache
-.DS_Store
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
 .env
-.eslintcache
-.fusebox/
-.idea/
-.next
-.node_repl_history
-.nuxt
-.npm
-.serverless/
-.stylelintcache
-.svelte-kit
-.tern-port
-.vscode/
-.vuepress/dist
-*.iml
-*.log
-*.sublime-*
-*.sublime-project
-*.sublime-workspace
-*.swp
-*.temp
-*.tmp
-*.tgz
-*.tsbuildinfo
-build/
-coverage/
-dist
-dist/
-dynamodb/
-logs
-node_modules/
-npm-debug.log*
-public
 venv/
-yarn-debug.log*
-yarn-error.log*
-yarn.lock
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Build
+/SecondTry/frontend/build/
+
+# IDE
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
