@@ -9,6 +9,7 @@
         "**/*.temp": true,
         "**/package-lock.json": true,
         "**/yarn.lock": true,
-        "**/venv/**": true
+        "**/venv/**": true,
+        "**/__pycache__/**": true
     }
 } 
